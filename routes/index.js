@@ -57,7 +57,7 @@ router.post("/register", async (req, res, next) => {
       from: 'school3091999@gmail.com',
       to: user.email,
       subject: 'Welcome',
-      text: 'Fuck You From Fadi'
+      text: 'Hi You From Fadi'
     };
 
     transporter.sendMail(mailOptions, function(error, info){
