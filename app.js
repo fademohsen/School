@@ -10,6 +10,9 @@ var teacherRouter = require ('./routes/teacher');
 var coursesRouter = require ('./routes/courses');
 var parentRouter = require ('./routes/parent') ;
 var app = express();
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'vash');
