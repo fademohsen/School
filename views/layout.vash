@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>School Management System</title>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">School</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+        @if(model.session.user){
+            @if(model.session.user.isAdmin) {
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="/teacher">Teachers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/student">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="/parent">Parents</a></li>
+            </ul>
+            }}
+            @if(model.session.user){
+            <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                         @model.session.user.firstname <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+       
+                </ul>
+                }
+                    
+            
+            <div class="form-inline my-2 my-lg-0">
+                @if(!model.session.user){
+                <input class="form-control mr-sm-2 ml-15" type="text" placeholder="Search" />
+                <form method="get" action="/register">
+                <button href="/register" class="btn btn-secondary my-2 my-sm-0 ml-4">Sign up</button>
+                </form>
+                <form method="get" action="/login">
+                <button class="btn btn-secondary my-2 my-sm-0 ml-2">Login</button>
+                 </form>
+                }
+                
+            
+            </div>
+        </div>
+    </nav>
+    @html.block('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿    @html.extend('layout', function(model) {
+  @html.block('content', function(model) {
+    <div class="container" style="margin-top:100px">
+        <hr />
+        <h1 style="display: inline-block;">Courses</h1>
+        <form method="get" action="/courses/create">
+
+        <button class="btn btn-success float-right">
+            Add Course
+        </button>
+
+        </form>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Subtitle</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Teacher</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+          @model.courses.forEach(function(item){
+
+                <tr>
+                    <td>@item.name</td>
+                    <td>@item.title</td>
+                    <td>@item.description</td>
+                    <td>@item.price</td>
+                    <td>@item.Teacher.firstName</td>
+
+                    <td>
+                    <form method="get" action="/courses/edit/@item.id">
+                        <button class="btn btn-primary">Edit</button>
+                         </form>|
+                         <form method="get" action="/courses/delete/@item.id">
+                        <button href="/courses/delete/@item.id" class="btn btn-danger">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+                                            })
+
+ 
+            </tbody>
+        </table>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2017-2019 School</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+})
+})

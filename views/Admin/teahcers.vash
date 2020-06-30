@@ -1,0 +1,58 @@
+﻿    @html.extend('layout', function(model) {
+  @html.block('content', function(model) {
+
+    <div class="container" style="margin-top:100px">
+        <hr />
+        <h1 style="display: inline-block;">Teachers</h1>
+        <form method="get" action="/teacher/create">
+
+        <button class="btn btn-success float-right">
+            Add Teacher
+        </button>
+         </form>
+
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr> 
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Data of Birth</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Stuats</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+           @model.teacher.forEach(function(item){
+
+                <tr>
+                    <td>@item.firstName</td>
+                    <td>@item.lastName</td>
+                    <td>@item.dataofbirth</td>
+                    <td>@item.mobile</td>
+                    <td>Active</td>
+                    <td>
+                        <form method="get" action="/teacher/edit/@item.id">
+                        <button class="btn btn-primary">Edit</button> |
+                        </form>
+                        <form method="get" action="/teacher/delete/@item.id">
+                        <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                })
+            </tbody>
+        </table>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2017-2019 School</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+})
+})
