@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "school",
-    "host": "127.0.0.1",
+    "username": "sql12351681",
+    "password": "W5MYL8CDUq",
+    "database": "sql12351681",
+    "host": "sql12.freemysqlhosting.net",
     "dialect": "mysql",
     "operatorsAliases": false
   },
@@ -16,10 +16,10 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "sql12351681",
+    "password": "W5MYL8CDUq",
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "sql12.freemysqlhosting.net",
     "dialect": "mysql",
     "operatorsAliases": false
   }
